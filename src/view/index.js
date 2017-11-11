@@ -1,37 +1,64 @@
-
 import React from 'react';
 import {
   StyleSheet,
   Text,
   View
 } from 'react-native';
-import Button from 'apsl-react-native-button'
+import Button from 'apsl-react-native-button';
+import container from './container';
+import {connect} from 'react-redux';
+import PropType from 'prop-types';
 
-export default () => (
-  <View style={styles.container}>
-    <Button style={styles.button}>
-      Get Price
+const App = ({usdPrice, priceRequest, loading}) => (
+    <View style={styles.container}>
+      <Button
+        style={styles.button}
+        onPress={priceRequest}
+        isLoading={loading}
+        activityIndicatorColor="white"
+        textStyle={styles.text}>
+        Get Price
     </Button>
-    <Text style={styles.price}>
-      50000.00
-    </Text>
-  </View>
+      <Text style={styles.price}>
+        {usdPrice}
+      </Text>
+    </View>
 );
+
+App.propTypes = {
+  usdPrice: PropType.string,
+  priceRequest: PropType.func,
+  loading: PropType.bool
+};
+
+App.defaultProps = {
+  usdPrice: '5000.4',
+  priceRequest: () => console.log('getPrice'),
+  loading: false
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    flex: 2,
+    justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#8052a5',
+    flexDirection: 'column',
   },
   price: {
     textAlign: 'center',
-    color: '#333333',
-    margin: 20,
+    color: 'white',
+    fontSize: 40
   },
   button: {
-    backgroundColor: 'purple',
-    margin: 20,
+    backgroundColor: '#268471',
+    marginLeft: 20,
+    marginRight: 20,
+    borderColor: 'white'
+  },
+  text: {
+    color: 'white',
   }
 });
+
+export default (connect())(container(App));
