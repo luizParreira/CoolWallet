@@ -7,6 +7,7 @@ import {
 import Button from 'apsl-react-native-button';
 import container from './container';
 import {connect} from 'react-redux';
+import PropType from 'prop-types';
 
 const App = ({usdPrice, priceRequest, loading}) => (
     <View style={styles.container}>
@@ -23,6 +24,18 @@ const App = ({usdPrice, priceRequest, loading}) => (
       </Text>
     </View>
 );
+
+App.propTypes = {
+  usdPrice: PropType.string,
+  priceRequest: PropType.func,
+  loading: PropType.bool
+};
+
+App.defaultProps = {
+  usdPrice: '5000.4',
+  priceRequest: () => console.log('getPrice'),
+  loading: false
+}
 
 const styles = StyleSheet.create({
   container: {
