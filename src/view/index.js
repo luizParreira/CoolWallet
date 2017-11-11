@@ -30,7 +30,7 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-  usdPrice: 5000.0,
+  usdPrice: '5000.4',
   priceRequest: () => console.log('getPrice'),
   loading: false
 }
