@@ -1,4 +1,5 @@
 import {Cmd} from 'redux-loop';
+import {priceResponse} from './actions';
 
 const headers = {
   Accept: 'application/json',
@@ -20,10 +21,9 @@ const request = async () => {
   };
 };
 
-export const priceRequest = success =>
+export const priceRequest =
   Cmd.run(
     request, {
-      args: [],
-      successActionCreator: success
+      successActionCreator: priceResponse
     }
   );

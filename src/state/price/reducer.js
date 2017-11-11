@@ -2,7 +2,6 @@ import {loop} from 'redux-loop';
 import {handleActions} from 'redux-actions';
 import {PRICE} from './types';
 import {priceRequest} from './cmds';
-import {priceResponse} from './actions';
 
 const initialState = {
   price: null,
@@ -13,7 +12,7 @@ const initialState = {
 export default handleActions({
   [PRICE.REQUEST]: state => loop(
     {price: null, loading: true, error: null},
-    priceRequest(priceResponse)
+    priceRequest
   ),
 
   [PRICE.RESPONSE]: {
