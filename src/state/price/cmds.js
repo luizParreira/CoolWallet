@@ -12,7 +12,7 @@ const request = async () => {
       method: 'GET'
     }
   );
-  console.log(response.json());
+
   return {
     ok: response.ok,
     status: response.status,

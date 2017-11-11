@@ -13,7 +13,9 @@ const App = ({usdPrice, priceRequest, loading}) => (
       <Button
         style={styles.button}
         onPress={priceRequest}
-        loading={loading}>
+        isLoading={loading}
+        activityIndicatorColor="white"
+        textStyle={styles.text}>
         Get Price
     </Button>
       <Text style={styles.price}>
@@ -24,20 +26,26 @@ const App = ({usdPrice, priceRequest, loading}) => (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    flex: 2,
+    justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#8052a5',
+    flexDirection: 'column',
   },
   price: {
     textAlign: 'center',
-    color: '#333333',
-    margin: 20,
+    color: 'white',
+    fontSize: 40
   },
   button: {
-    backgroundColor: 'purple',
-    margin: 20,
+    backgroundColor: '#268471',
+    marginLeft: 20,
+    marginRight: 20,
+    borderColor: 'white'
+  },
+  text: {
+    color: 'white',
   }
 });
 
-export default connect()(container(App));
+export default (connect())(container(App));

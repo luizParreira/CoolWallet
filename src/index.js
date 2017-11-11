@@ -9,6 +9,7 @@ import {Provider} from 'react-redux';
 import getStore from './state/reducer';
 
 const store = getStore();
+
 console.log(store);
 const App = () => (
   <Provider store={store}>
