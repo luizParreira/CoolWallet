@@ -19,6 +19,6 @@ export default handleActions({
     next: (state, {payload}) =>
       ({loading: false, price: payload, error: null}),
     throw: (state, {payload}) =>
-      ({loading: false, price: null, error: 'Error'})
+      ({loading: false, price: null, error: payload})
   }
 }, initialState);

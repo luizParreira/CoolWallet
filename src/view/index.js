@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 import Button from 'apsl-react-native-button';
 import container from './container';
-import {connect} from 'react-redux';
 import PropType from 'prop-types';
 
 const App = ({usdPrice, priceRequest, loading}) => (
@@ -61,4 +60,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default (connect())(container(App));
+export default container(App);
